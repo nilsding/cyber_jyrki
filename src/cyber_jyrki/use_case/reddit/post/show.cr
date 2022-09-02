@@ -10,7 +10,7 @@ module CyberJyrki
       module Post
         class Show < UseCase::Base
           REDDIT_BASE_URL = "https://reddit.com"
-          USER_AGENT = "CyberJyrki/#{VERSION} (https://github.com/nilsding/cyber_jyrki)"
+          USER_AGENT      = "CyberJyrki/#{VERSION} (https://github.com/nilsding/cyber_jyrki)"
 
           getter post_id : String
 

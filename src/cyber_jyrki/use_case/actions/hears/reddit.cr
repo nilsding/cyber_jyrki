@@ -25,14 +25,12 @@ module CyberJyrki
               else
                 reply_with_text(post)
               end
-
             rescue ex
               Log.error { ex }
             end
           end
 
           private def reply_with_image(post)
-
             caption = "*#{markdown_escape post.title}*\n_Posted in r/#{markdown_escape post.subreddit} by u/#{markdown_escape post.author}_"
 
             context.message.reply_with_photo(
