@@ -9,6 +9,9 @@ targets:
     main: src/main.cr
 
 dependencies:
+  crest:
+    github: mamantoha/crest
+
   dotenv:
     github: drum445/dotenv
 
