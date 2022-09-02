@@ -1,0 +1,21 @@
+name: cyber_jyrki
+version: 0.1.0
+
+authors:
+  - Georg Gadinger <nilsding@nilsding.org>
+
+targets:
+  cyber_jyrki:
+    main: src/main.cr
+
+dependencies:
+  dotenv:
+    github: drum445/dotenv
+
+  tourmaline:
+    github: protoncr/tourmaline
+    branch: master
+
+crystal: 1.5.0
+
+license: MIT
