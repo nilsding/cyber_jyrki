@@ -15,6 +15,9 @@ dependencies:
   dotenv:
     github: drum445/dotenv
 
+  html5:
+    github: naqvis/crystal-html5
+
   tourmaline:
     github: protoncr/tourmaline
     branch: master

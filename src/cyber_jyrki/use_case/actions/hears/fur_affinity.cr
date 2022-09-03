@@ -1,12 +1,12 @@
 require "./base"
 
-require "../../reddit/post/show"
+require "../../fur_affinity/post/show"
 
 module CyberJyrki
   module UseCase
     module Actions
       module Hears
-        class Reddit < Base
+        class FurAffinity < Base
           Log = ::Log.for(self)
 
           def call
@@ -18,20 +18,26 @@ module CyberJyrki
 
             Log.info { "looking up post #{post_id}" }
             begin
-              post = UseCase::Reddit::Post::Show.call(post_id)
+              post = UseCase::FurAffinity::Post::Show.call(post_id)
 
-              if post.image?
-                reply_with_image(post)
-              else
-                reply_with_text(post)
+              unless post.valid?
+                Log.warn { "#{post_id} is not a valid post" }
+                return
               end
+
+              unless post.image?
+                Log.info { "#{post_id} is not an image post (download url is: #{post.url.inspect})" }
+                return
+              end
+
+              reply_with_image(post)
             rescue ex
               Log.error { ex }
             end
           end
 
           private def reply_with_image(post)
-            caption = "*#{markdown_escape post.title}*\n_Posted in r/#{markdown_escape post.subreddit} by u/#{markdown_escape post.author}_"
+            caption = "*#{markdown_escape post.title}*\n_by #{markdown_escape post.artist}, #{markdown_escape post.rating.to_s} rating_"
 
             if post.url.downcase.ends_with?(".gif") # likely to be an animated gif
               context.message.reply_with_animation(
@@ -48,11 +54,6 @@ module CyberJyrki
               caption: caption,
               parse_mode: Tourmaline::ParseMode::MarkdownV2,
             )
-          end
-
-          private def reply_with_text(post)
-            content = "*#{markdown_escape post.title}*\n_Posted in r/#{markdown_escape post.subreddit} by u/#{markdown_escape post.author}_\n\n#{markdown_escape post.selftext}"
-            context.message.reply(content, parse_mode: Tourmaline::ParseMode::MarkdownV2)
           end
 
           # "please note" https://core.telegram.org/bots/api#markdownv2-style

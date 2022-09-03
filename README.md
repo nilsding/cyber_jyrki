@@ -15,6 +15,8 @@ first-time configuration:
 ```sh
 # create environment file containing the configuration
 echo "TELEGRAM_API_KEY=1234567890:abcdefghijklmnop..." > .env
+echo "FUR_AFFINITY_COOKIE_A=a04bfec6-4836-4041-b9bf-9749e3fb17bc" >> .env
+echo "FUR_AFFINITY_COOKIE_B=875bc28b-6f9c-49af-b744-36a482352a47" >> .env
 ```
 
 ## Usage
