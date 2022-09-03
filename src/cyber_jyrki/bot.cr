@@ -14,7 +14,7 @@ module CyberJyrki
       UseCase::Actions::Commands::Start.call(ctx)
     end
 
-    @[Hears(%r{(?:reddit\.com/r/[^/]+/comments|redd\.it)/(?<post_id>[^/\s$]+)})]
+    @[Hears(%r{(?:reddit\.com/r/[^/]+/comments|(?<![iv]\.)redd\.it)/(?<post_id>[^/\s$]+)})]
     def reddit(ctx)
       UseCase::Actions::Hears::Reddit.call(ctx)
     end
