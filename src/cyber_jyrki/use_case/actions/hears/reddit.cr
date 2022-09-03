@@ -54,29 +54,6 @@ module CyberJyrki
             content = "*#{markdown_escape post.title}*\n_Posted in r/#{markdown_escape post.subreddit} by u/#{markdown_escape post.author}_\n\n#{markdown_escape post.selftext}"
             context.message.reply(content, parse_mode: Tourmaline::ParseMode::MarkdownV2)
           end
-
-          # "please note" https://core.telegram.org/bots/api#markdownv2-style
-          private def markdown_escape(text)
-            text
-              .gsub("_", "\\_")
-              .gsub("*", "\\*")
-              .gsub("[", "\\[")
-              .gsub("]", "\\]")
-              .gsub("(", "\\(")
-              .gsub(")", "\\)")
-              .gsub("~", "\\~")
-              .gsub("`", "\\`")
-              .gsub(">", "\\>")
-              .gsub("#", "\\#")
-              .gsub("+", "\\+")
-              .gsub("-", "\\-")
-              .gsub("=", "\\=")
-              .gsub("|", "\\|")
-              .gsub("{", "\\{")
-              .gsub("}", "\\}")
-              .gsub(".", "\\.")
-              .gsub("!", "\\!")
-          end
         end
       end
     end

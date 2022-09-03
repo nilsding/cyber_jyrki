@@ -55,29 +55,6 @@ module CyberJyrki
               parse_mode: Tourmaline::ParseMode::MarkdownV2,
             )
           end
-
-          # "please note" https://core.telegram.org/bots/api#markdownv2-style
-          private def markdown_escape(text)
-            text
-              .gsub("_", "\\_")
-              .gsub("*", "\\*")
-              .gsub("[", "\\[")
-              .gsub("]", "\\]")
-              .gsub("(", "\\(")
-              .gsub(")", "\\)")
-              .gsub("~", "\\~")
-              .gsub("`", "\\`")
-              .gsub(">", "\\>")
-              .gsub("#", "\\#")
-              .gsub("+", "\\+")
-              .gsub("-", "\\-")
-              .gsub("=", "\\=")
-              .gsub("|", "\\|")
-              .gsub("{", "\\{")
-              .gsub("}", "\\}")
-              .gsub(".", "\\.")
-              .gsub("!", "\\!")
-          end
         end
       end
     end
