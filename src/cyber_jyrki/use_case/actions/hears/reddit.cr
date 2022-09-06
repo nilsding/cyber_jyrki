@@ -33,21 +33,7 @@ module CyberJyrki
           private def reply_with_image(post)
             caption = "*#{markdown_escape post.title}*\n_Posted in r/#{markdown_escape post.subreddit} by u/#{markdown_escape post.author}_"
 
-            if post.url.downcase.ends_with?(".gif") # likely to be an animated gif
-              context.message.reply_with_animation(
-                post.url,
-                caption: caption,
-                parse_mode: Tourmaline::ParseMode::MarkdownV2,
-              )
-
-              return
-            end
-
-            context.message.reply_with_photo(
-              post.url,
-              caption: caption,
-              parse_mode: Tourmaline::ParseMode::MarkdownV2,
-            )
+            reply_to_message_with_image(context.message, image_url: post.url, caption: caption)
           end
 
           private def reply_with_text(post)
