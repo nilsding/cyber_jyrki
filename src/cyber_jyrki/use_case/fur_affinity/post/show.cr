@@ -15,7 +15,6 @@ module CyberJyrki
             "a" => ENV.fetch("FUR_AFFINITY_COOKIE_A"),
             "b" => ENV.fetch("FUR_AFFINITY_COOKIE_B"),
           }
-          USER_AGENT = "CyberJyrki/#{VERSION} (https://github.com/nilsding/cyber_jyrki)"
 
           Log = ::Log.for(self)
 
