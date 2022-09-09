@@ -10,7 +10,7 @@ module CyberJyrki
     module FurAffinity
       module Post
         class Show < UseCase::Base
-          FUR_AFFINITY_BASE_URL     = "https://furaffinity.net"
+          FUR_AFFINITY_BASE_URL     = "https://www.furaffinity.net"
           FUR_AFFINITY_BASE_COOKIES = {
             "a" => ENV.fetch("FUR_AFFINITY_COOKIE_A"),
             "b" => ENV.fetch("FUR_AFFINITY_COOKIE_B"),
