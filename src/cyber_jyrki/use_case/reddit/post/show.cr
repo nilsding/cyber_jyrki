@@ -9,7 +9,7 @@ module CyberJyrki
     module Reddit
       module Post
         class Show < UseCase::Base
-          REDDIT_BASE_URL = "https://reddit.com"
+          REDDIT_BASE_URL = "https://www.reddit.com"
 
           getter post_id : String
 
