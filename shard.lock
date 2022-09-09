@@ -32,6 +32,10 @@ shards:
     git: https://github.com/protoncr/tourmaline.git
     version: 0.26.1+git.commit.fb86e28c7cff0e4b6e88f96e364171d299bdb4be
 
+  webmock:
+    git: https://github.com/manastech/webmock.cr.git
+    version: 0.14.0+git.commit.42b347cdd64e13193e46167a03593944ae2b3d20
+
   xpath2:
     git: https://github.com/naqvis/crystal-xpath2.git
     version: 0.1.3

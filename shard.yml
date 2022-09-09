@@ -22,6 +22,11 @@ dependencies:
     github: protoncr/tourmaline
     branch: master
 
+development_dependencies:
+  webmock:
+    github: manastech/webmock.cr
+    branch: master
+
 crystal: 1.5.0
 
 license: MIT
