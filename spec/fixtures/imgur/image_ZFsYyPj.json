@@ -1,0 +1,52 @@
+{
+  "data": {
+    "id": "ZFsYyPj",
+    "title": null,
+    "description": null,
+    "datetime": 1662145738,
+    "type": "image/png",
+    "animated": false,
+    "width": 2304,
+    "height": 1536,
+    "size": 3437567,
+    "views": 1572,
+    "bandwidth": 5403855324,
+    "vote": null,
+    "favorite": false,
+    "nsfw": false,
+    "section": null,
+    "account_url": null,
+    "account_id": null,
+    "is_ad": false,
+    "in_most_viral": false,
+    "has_sound": false,
+    "tags": [
+
+    ],
+    "ad_type": 0,
+    "ad_url": "",
+    "edited": "0",
+    "in_gallery": false,
+    "link": "https://i.imgur.com/ZFsYyPj.png",
+    "ad_config": {
+      "safeFlags": [
+        "not_in_gallery",
+        "sixth_mod_safe",
+        "share"
+      ],
+      "highRiskFlags": [
+
+      ],
+      "unsafeFlags": [
+
+      ],
+      "wallUnsafeFlags": [
+
+      ],
+      "showsAds": true,
+      "showAdLevel": 2
+    }
+  },
+  "success": true,
+  "status": 200
+}
