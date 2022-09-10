@@ -1,0 +1,29 @@
+on:
+  push:
+  pull_request:
+    branches: [main]
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Download source
+        uses: actions/checkout@v2
+
+      - name: Install Crystal
+        uses: crystal-lang/install-crystal@v1
+
+      - name: Install shards
+        run: shards install
+
+      - name: Run tests
+        run: crystal spec --order=random
+
+      - name: Build
+        run: shards build
+
+      - name: Check formatting
+        run: crystal tool format; git diff --exit-code
