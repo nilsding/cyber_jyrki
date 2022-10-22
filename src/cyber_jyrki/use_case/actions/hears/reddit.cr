@@ -13,6 +13,17 @@ module CyberJyrki
           Log = ::Log.for(self)
 
           def call
+            if attachments?(context.message)
+              # assume the attachment is the content -- no need to try to fetch it ourselves
+              from_id = if context.message.from
+                          context.message.from.not_nil!.id.to_s
+                        else
+                          "<unknown user>"
+                        end
+              Log.info { "ignoring message from #{from_id} as it has attachments" }
+              return
+            end
+
             post_id = context.match["post_id"]
             if post_id.nil?
               Log.info { "no post id found in #{context.message.text}" }

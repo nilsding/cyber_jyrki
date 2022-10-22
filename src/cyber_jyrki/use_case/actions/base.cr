@@ -27,6 +27,17 @@ module CyberJyrki
             .gsub("!", "\\!")
         end
 
+        # returns whether `message` has any attachments
+        private def attachments?(message : Tourmaline::Message) : Bool
+          !(
+            context.message.photo.size.zero? &&   # message has no photo
+              context.message.video.nil? &&       # message has no video
+              context.message.animation.nil? &&   # message has no animation / gif
+              context.message.audio.nil? &&       # message has no audio
+              context.message.media_group_id.nil? # message has not an album
+          )
+        end
+
         # tries to reply to a message with a given image
         #
         # make sure `caption` is properly escaped
