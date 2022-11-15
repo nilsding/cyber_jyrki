@@ -20,6 +20,10 @@ echo "FUR_AFFINITY_COOKIE_B=875bc28b-6f9c-49af-b744-36a482352a47" >> .env
 echo "IMGUR_CLIENT_ID=1234567890abcde" >> .env
 ```
 
+note: to make the bot work in groups you need to **disable** the "privacy mode"
+for your bot.  this can be done by using the `/setprivacy` command with
+`@BotFather`.
+
 ## Usage
 
 once built:
