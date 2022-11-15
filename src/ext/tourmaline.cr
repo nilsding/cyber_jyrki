@@ -1,25 +1,17 @@
 module Tourmaline
   module Handlers
     class CommandHandler
-      # sourced from: https://github.com/protoncr/tourmaline/blob/fb86e28c7cff0e4b6e88f96e364171d299bdb4be/src/tourmaline/handlers/command_handler.cr
+      # sourced from: https://github.com/protoncr/tourmaline/blame/430a68570ee4b8486ac435171cf641a839f0eb37/src/tourmaline/handlers/command_handler.cr
       def call(update : Update)
         if (message = update.message || update.channel_post) || (@on_edit && (message = update.edited_message || update.edited_channel_post))
-          return if message.is_outgoing? unless @outgoing
+          return if message.outgoing? unless @outgoing
           if ((raw_text = message.raw_text) && (text = message.text)) ||
              (raw_text = message.raw_caption && (text = message.caption))
             # BEGIN HACK(nilsding): for some reason it was:
             # return if private_only && message.chat.private?
             return if private_only && !message.chat.private?
             # END HACK
-            return if (group_only || admin_only) && message.chat.private?
-
-            if @admin_only && !message.chat.private? && !message.chat.channel?
-              if from = message.from
-                admins = @client.get_chat_administrators(message.chat.id)
-                ids = admins.map(&.user.id)
-                return unless ids.includes?(from.id)
-              end
-            end
+            return if group_only && message.chat.private?
 
             text = text.to_s
             raw_text = raw_text.to_s
@@ -41,7 +33,7 @@ module Tourmaline
 
             if command.starts_with?('/') && command.includes?("@")
               command, botname = command.split("@", 2)
-              return unless botname.downcase == @client.bot.username.to_s.downcase
+              return unless botname.downcase == client.bot.username.to_s.downcase
             end
 
             prefix_re = /^#{@prefixes.map(&->Regex.escape(String)).join('|')}/

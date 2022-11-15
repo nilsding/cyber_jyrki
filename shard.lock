@@ -2,7 +2,7 @@ version: 2.0
 shards:
   crest:
     git: https://github.com/mamantoha/crest.git
-    version: 1.3.1
+    version: 1.3.6
 
   db:
     git: https://github.com/crystal-lang/crystal-db.git
@@ -26,11 +26,11 @@ shards:
 
   http_proxy:
     git: https://github.com/mamantoha/http_proxy.git
-    version: 0.9.0+git.commit.395aaf02be36d339e9858501a6e7630937adb8be
+    version: 0.9.0+git.commit.691705ba3dbb1b59192b31ac2374770bfe6d7fb2
 
   tourmaline:
     git: https://github.com/protoncr/tourmaline.git
-    version: 0.26.1+git.commit.fb86e28c7cff0e4b6e88f96e364171d299bdb4be
+    version: 0.27.0+git.commit.430a68570ee4b8486ac435171cf641a839f0eb37
 
   webmock:
     git: https://github.com/manastech/webmock.cr.git

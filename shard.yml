@@ -17,6 +17,7 @@ dependencies:
 
   html5:
     github: naqvis/crystal-html5
+    branch: master
 
   tourmaline:
     github: protoncr/tourmaline
