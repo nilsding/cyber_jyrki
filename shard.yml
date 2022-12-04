@@ -20,8 +20,8 @@ dependencies:
     branch: master
 
   tourmaline:
-    github: protoncr/tourmaline
-    branch: master
+    github: nilsding/tourmaline
+    branch: fix-location
 
 development_dependencies:
   webmock:

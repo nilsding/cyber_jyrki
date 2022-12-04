@@ -6,7 +6,7 @@ shards:
 
   db:
     git: https://github.com/crystal-lang/crystal-db.git
-    version: 0.10.1
+    version: 0.11.0
 
   dotenv:
     git: https://github.com/drum445/dotenv.git
@@ -29,8 +29,8 @@ shards:
     version: 0.9.0+git.commit.691705ba3dbb1b59192b31ac2374770bfe6d7fb2
 
   tourmaline:
-    git: https://github.com/protoncr/tourmaline.git
-    version: 0.27.0+git.commit.430a68570ee4b8486ac435171cf641a839f0eb37
+    git: https://github.com/nilsding/tourmaline.git
+    version: 0.27.0+git.commit.5a97c092b0253e87f77fbb6cac77ac827a3f9ccc
 
   webmock:
     git: https://github.com/manastech/webmock.cr.git
