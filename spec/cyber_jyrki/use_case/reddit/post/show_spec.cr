@@ -8,12 +8,7 @@ describe CyberJyrki::UseCase::Reddit::Post::Show do
   end
 
   it "returns info for an image post" do
-    # reddit redirects our request to a more complete url
-    WebMock.stub(:get, "https://www.reddit.com/x3gq5u.json")
-      .to_return(status: 301, headers: {
-        "location" => "https://www.reddit.com/r/gfur/comments/x3gq5u/sigmax/.json",
-      })
-    WebMock.stub(:get, "https://www.reddit.com/r/gfur/comments/x3gq5u/sigmax/.json")
+    WebMock.stub(:get, "https://www.reddit.com/by_id/t3_x3gq5u.json")
       .to_return(status: 200, body: Fixtures::Reddit["thread_x3gq5u.json"])
 
     post = CyberJyrki::UseCase::Reddit::Post::Show.new(post_id: "x3gq5u").call
@@ -29,12 +24,7 @@ describe CyberJyrki::UseCase::Reddit::Post::Show do
   end
 
   it "returns info for a self post" do
-    # reddit redirects our request to a more complete url
-    WebMock.stub(:get, "https://www.reddit.com/ve81a1.json")
-      .to_return(status: 301, headers: {
-        "location" => "https://www.reddit.com/r/Austria/comments/ve81a1/hallo_reddit_ich_bin_armin_wolf_journalist_und/.json",
-      })
-    WebMock.stub(:get, "https://www.reddit.com/r/Austria/comments/ve81a1/hallo_reddit_ich_bin_armin_wolf_journalist_und/.json")
+    WebMock.stub(:get, "https://www.reddit.com/by_id/t3_ve81a1.json")
       .to_return(status: 200, body: Fixtures::Reddit["thread_ve81a1.json"])
 
     post = CyberJyrki::UseCase::Reddit::Post::Show.new(post_id: "ve81a1").call
@@ -50,7 +40,7 @@ describe CyberJyrki::UseCase::Reddit::Post::Show do
   end
 
   it "raises an error if the post could not be found" do
-    WebMock.stub(:get, "https://www.reddit.com/notfound.json")
+    WebMock.stub(:get, "https://www.reddit.com/by_id/t3_notfound.json")
       .to_return(status: 404, body: %({"message": "Not Found", "error": 404}))
 
     expect_raises(Crest::NotFound) do
