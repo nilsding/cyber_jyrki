@@ -30,7 +30,7 @@ shards:
 
   tourmaline:
     git: https://github.com/nilsding/tourmaline.git
-    version: 0.27.0+git.commit.5a97c092b0253e87f77fbb6cac77ac827a3f9ccc
+    version: 0.27.0+git.commit.16165673f04475d184e3cc909c023b480dee5880
 
   webmock:
     git: https://github.com/manastech/webmock.cr.git

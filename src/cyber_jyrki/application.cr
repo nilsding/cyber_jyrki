@@ -15,7 +15,7 @@ module CyberJyrki
       puts "CyberJyrki #{VERSION} starting up..."
 
       bot = Bot.new(bot_token: telegram_token)
-      bot.poll
+      bot.poll timeout: 30
     end
   end
 end

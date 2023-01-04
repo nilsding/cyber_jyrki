@@ -21,7 +21,7 @@ dependencies:
 
   tourmaline:
     github: nilsding/tourmaline
-    branch: fix-location
+    branch: poll-timeout
 
 development_dependencies:
   webmock:
